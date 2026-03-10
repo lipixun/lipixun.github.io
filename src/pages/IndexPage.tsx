@@ -19,7 +19,7 @@ export function IndexPage() {
         <Avatar alt='Avatar' src='https://github.com/lipixun.png?size=96' sx={{ width: 96, height: 96 }} />
         <span>Simon</span>
         <span>Intangible Cultural Heritage Inheritor of Hand-Crafted Coding</span>
-        <span>纯手工 · 匠心</span>
+        <span>匠心 · 纯手工</span>
         <span>Beijing China</span>
       </Stack>
     </div>
