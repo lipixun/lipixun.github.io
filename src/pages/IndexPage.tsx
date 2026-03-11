@@ -28,6 +28,6 @@ export function IndexPage() {
 }
 
 const textStyle: CSSProperties = {
-  '-webkit-text-stroke': '1em black',
+  WebkitTextStroke: '1em black',
   paintOrder: 'stroke fill',
 }

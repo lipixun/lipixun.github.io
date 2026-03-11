@@ -1,17 +1,11 @@
 // App
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createBrowserRouter, Outlet } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import api from './apis';
 import { EbanfloLensing, DukeDustyNebula4 } from './components';
 import routers from './pages';
 import './App.css';
-
-const theme = createTheme({
-  colorSchemes: {
-    dark: true,
-  },
-});
 
 function Background() {
   const [index] = useState<number>(() => {
@@ -65,11 +59,18 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  );
+  // Check build time
+  const { data: buildTime } = api.endpoints.getBuildTime.useQuery();
+  useEffect(() => {
+    if (buildTime && buildTime.time !== __BUILD_TIME__) {
+      // Current page is out of date, refresh with __t=ts to invalidate cache
+      const params = new URLSearchParams(location.search);
+      params.set('__t', `${Date.now()}`);
+      location.href = `${location.pathname}?${params.toString()}${location.hash}`;
+    }
+  }, [buildTime]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App
