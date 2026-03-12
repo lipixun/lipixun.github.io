@@ -13,7 +13,7 @@ export function NotFoundPage() {
         justifyContent: 'center',
       }}
     >
-      <h1>Not Found</h1>
+      <h1 style={{ WebkitTextStroke: '1em black', paintOrder: 'stroke fill' }}>Not Found</h1>
     </div>
   );
 }

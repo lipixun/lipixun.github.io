@@ -1,7 +1,8 @@
 // Pages
-import type { RouteObject } from 'react-router'
-import { IndexPage } from './IndexPage'
-import { NotFoundPage } from './NotFoundPage'
+import type { RouteObject } from 'react-router';
+import { IndexPage } from './IndexPage';
+import { NotFoundPage } from './NotFoundPage';
+import './style.css';
 
 const routers: RouteObject[] = [
   {
@@ -12,6 +13,6 @@ const routers: RouteObject[] = [
     path: '*',
     element: <NotFoundPage />,
   },
-]
+];
 
-export default routers
+export default routers;
